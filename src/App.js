@@ -10,7 +10,7 @@ import Detail from "./route/Detail";
 
 function App() {
 
-    let mountains='대한민국 5대 높은 산'
+  //  let mountains='대한민국 5대 높은 산'
     // let [large]=useState(largest)
     let [small]=useState(smallest)
     let [large]=useState(largest)
@@ -57,7 +57,7 @@ function App() {
            <div>
         <div className="main-bg"> <h1> Mountains in Korea </h1> </div>
 
-        <h4 style={{color:"#8B4513", fontSize:"37px",margin:"32px 2px"}}>{mountains}</h4>
+        <h4 style={{color:"#8B4513", fontSize:"37px",margin:"32px 2px"}}>대한민국 5대 높은 산</h4>
 
             <div className="container">
             <div className="row">
@@ -73,7 +73,7 @@ function App() {
                <Button variant="outline-success" size="1g"> 대한민국 산 더 보기 </Button>
            </div>
                }/>
-            <Route path="/detail/:id" element={<Detail/>}/>
+            <Route path="/detail/:id" element={<Detail mountains={large}/>}/>
             <Route path="/about" element={<About/>}>
                 <Route path="member" element={<Membership/>}/>
                 <Route path="location" element={<Location/>}/>

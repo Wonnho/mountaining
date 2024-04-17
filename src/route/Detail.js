@@ -21,8 +21,8 @@ function Detail(mt) {
     )
 
     let mountainFind=mt.mountains.find(
-        function(k) {
-            return k.id==id
+        function(x) {
+            return x.id==id
         }
     )
 
