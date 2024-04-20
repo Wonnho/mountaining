@@ -7,7 +7,7 @@ function Detail(mt) {
     let [count,setCount]=useState(0);
     let [alert,setAlert]=useState(true);
     let [days,setDays]=useState('')
-    let [tab,setTab]=useState(0)
+    let [tab,setTab]=useState('')
     let navigate=useNavigate();
     useEffect(
         ()=>{
@@ -51,10 +51,11 @@ function Detail(mt) {
                      <p> </p>
                 </div>
                 <div>
-                    <h4> 선정이유  </h4>
-                    <p> 휴전선에 인접해 있는 탓에 입산금지구역으로 묶여 있다가 몇 년 전부터 통제가 다소 완화되었기 때문이다. 그러나 여전히 등산로가 제한된다. 정상을 중심으로 산행이 가능한 등산로는 범륜사, 신암리, 원당리 방면이다. 감악사, 운계사, 범륜사, 운림사 등의 4개 사찰이 있었다는데 현재는 1970년 옛 운계사 터에 재창건한 범륜사만 남아있다. 장군봉 아래는 조선 명종 때 의적 임꺽정이 관군의 추적을 피해 숨어있었다는 임꺽정굴이 있다.  </p>
-                    <h4> 상세 정보</h4>
-                    <p>대암산 정상 부근에는 큰 용늪, 작은 용늪이라 불리는 고지습원이 있는데, 작은 용늪은 이미 그 원래의 모습을 상실하여 숲으로 변해버리고 말았다. 큰 용늪은 우리나라에서 유일한 고지습원으로 연중 안개끼는 날이 많은 특수한 환경이 조성되고 있어 생태계 연구에 좋은 자료를 제공하고 있다.</p>
+                    <h4> 산악 정보 </h4>
+                    <p>방문객수: 20800명 </p>
+                    <p> 등산 상태: 등산하기 좋음/어려움/불가 </p>
+                    <p>예상시간:4:30분~5:30분 </p>
+                    <p> 등산 난이도: 상 </p>
                     <button onClick={()=>{
                         setCount(count+1)
                     }}>
@@ -71,62 +72,22 @@ function Detail(mt) {
             </div>
             <Nav variant="tabs"  defaultActiveKey="link0">
                 <Nav.Item>
-                    <Nav.Link eventKey="link0" onClick={()=>{
-                        setTab(0);
-                    }}>산악정보</Nav.Link>
+                    <Nav.Link eventKey="link0">산악정보</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link eventKey="link1" onClick={()=>{
-                        setTab(1);
-                    }}>등산로</Nav.Link>
+                    <Nav.Link eventKey="link1">등산로</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link eventKey="link2" onClick={()=>{
-                        setTab(2);
-                    }}>숙박정보</Nav.Link>
+                    <Nav.Link eventKey="link2">숙박정보</Nav.Link>
                 </Nav.Item>
             </Nav>
             {/* 탭의 내용 미리 디자인 */}
+            <div>제품 리뷰 상세 내용</div>
+            <div>Q/A 상세 내용</div>
+            <div>배송정보 상세 내용</div>
 
-           <TabInfo tab={tab}/>
         </div>
     )
 }
 
-function TabInfo(mt) {
-    if(mt.tab==0) {
-        return <div>
-            <table>
-                <tr>
-                    <th>방문객수</th>
-                    <td>20800명</td>
-                </tr>
-                <tr>
-                    <th>등산 상태</th>
-                    <td>등산하기 좋음/어려움/불가</td>
-                </tr>
-                <tr>
-                    <th>예상시간</th>
-                    <td>4:30분~5:30분</td>
-                </tr>
-                <tr>
-                    <th>등산 난이도</th>
-                    <td>상</td>
-                </tr>
-            </table>
-
-        </div>
-    } else if(mt.tab==1) {
-        return <div>제1 등산로</div>
-    } else if(mt.tab==2) {
-        return <div>
-            <ul>
-                <li>호텔</li>
-                <li>콘도</li>
-                <li>모텔</li>
-                <li>민박</li>
-            </ul>
-        </div>
-    }
-}
 export default Detail;

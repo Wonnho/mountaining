@@ -8,14 +8,14 @@ import {smallest,largest} from './data.js';
 import {Routes, Route, Link, useNavigate, Outlet} from "react-router-dom";
 import Detail from "./route/Detail";
 import axios from "axios";
-import Booking from "./route/Booking";
 
 function App() {
 
   //  let mountains='대한민국 5대 높은 산'
     // let [large]=useState(largest)
     let [small]=useState(smallest)
-    let [large,setLarge]=useState(largest)
+    let [large]=useState(largest)
+
     let navigate=useNavigate();
   return (
     <div className="App">
@@ -71,20 +71,16 @@ function App() {
             }
             </div>
             </div>
-               <div> {/* 그림을 이어서 말고 한칸 아래에서부터 렌더링하고 싶다. 여기 div는 만든거 임 */}
                <Button variant="outline-success" size="1g"
                onClick={()=>{
                    axios.get('http://localhost:5000/mountain2')
                        .then((response)=>{
-                       // console.log(response.data)
-                           let largeCopy=[...large,...response.data]
-                           setLarge(largeCopy);
+                        console.log(response.data)
                        })
                        .catch(()=>{
                            console.log('failed')
                        })
                }}> 대한민국 산 더 보기 </Button>
-               </div>
            </div>
                }/>
             <Route path="/detail/:id" element={<Detail mountains={large}/>}/>
@@ -92,7 +88,6 @@ function App() {
                 <Route path="member" element={<Membership/>}/>
                 <Route path="location" element={<Location/>}/>
             </Route>
-            <Route path="booking" element={<Booking/>}></Route>
         </Routes>
         <Link to="/">Home</Link>{' '}
         <Link to="/about">About</Link>{' '}
